@@ -1,0 +1,5 @@
+{
+    "appid": 455847837,
+    "theme": "red",
+    "gapikey": "AIzaSyDHD5QKg6Z6pBIPLjzo2VOTvi37t6IRJ_o"
+}

@@ -1,0 +1,118 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="podcasts" class="page">
+        <!-- Top Navbar -->
+        <div class="navbar"></div>
+        <!-- Scrollable page content -->
+        <div class="page-content">
+            <div id="wrapPodcast" class="wrapWelcomeComedianIntro text-align-center">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="4"></a></div>
+                {{#if results}}
+                    <div class="list">
+                        <ul>
+                        {{#each results}}
+                            <li class="swipeout sortableRow singleItem animated wrap-single-podcast text-align-left" data-sorting="{{sorting}}" data-id="{{id}}">
+                            <div class="overflow">
+                                <div class=" swipeout-content" rel="sortItem">
+                                <div class="text-holder">
+                                    <div class="size-16 lineheight120 text-color-white strong">{{title}}</div>
+                                    <div class="padd2"></div>
+                                    <div class="size-12 lineheight120 text-color-white limited-text">{{description}}</div>
+                                </div>
+                                {{#if url}}
+                                <div class="padd5"></div>
+                                <div class="wrapPlayer" data-src="{{url}}" data-sourcetype="{{type}}">
+                                    <audio ontimeupdate="initProgressBar(this)" preload="none">
+                                    <source src="{{url}}" type="{{type}}">
+                                  </audio>
+                                    <div class="wrap-custom-player-controls d-flex">
+                                        <div class="wrap-custom-player-progress-time">{{duration}}</div>
+                                        <div class="buttons">
+                                            <a href="#" class="size-14 wrap-custom-player-playbutton">
+                                                <span class="fa-stack">
+                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                    <i class="fas fa-play fa-stack-1x"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="size-14 wrap-custom-player-pausebutton">
+                                                <div class="wrap-custom-player-preloader">
+                                                    <div class="preloader"></div>
+                                                </div>
+                                                <span class="fa-stack">
+                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                    <i class="fas fa-square-full fa-stack-1x"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="flex1">
+                                            <div class="wrap-custom-player-loader-bg">
+                                                <div class="wrap-custom-player-progress-bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {{/if}}
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <!-- Swipeout actions links/buttons -->
+                                    <a class="external" href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_blank">
+                                        <span class="fa-stack">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-facebook-f fa-stack-1x text-color-red"></i>
+                                        </span>
+                                    </a>
+                                    <a class="external" href="https://twitter.com/intent/tweet/?text={{title}}.&url={{urltoshare}}" target="_blank">
+                                        <span class="fa-stack">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-twitter fa-stack-1x text-color-red"></i>
+                                        </span>
+                                    </a>
+                                    <a class="external" href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title={{title}}&summary={{description}}&source=" target="_blank">
+                                        <span class="fa-stack">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-linkedin-in fa-stack-1x text-color-red"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            </li>
+                        {{/each}}
+                        </ul>
+                        <div class="paddLeftRight20 paddTopBottom20 animated" data-target="load-more-btn"><div class="padd10"></div><a href="#" class="btn button button-outline btn-outline-white round0" @click="loadMore" data-count="{{count}}" data-counttotal="{{counttotal}}">Load more</a></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageInit: function () {
+          
+        // do something on page init
+        var self = this;
+        loadComedianData(self, "loadComedianPodcast", this.count);
+      },
+      pageBeforeIn: function () {
+          checkForFirstTime(4);
+          $$("#wrapPodcast a[data-target='click-to-track']").trigger("click");
+      },
+      pageAfterIn: function () {
+          activateDynamicNavBar("podcast");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicNavBar();
+      },
+    },
+    methods: {
+        loadMore: function() {
+          // ...
+          var self=this;
+          loadComedianData(self, "loadComedianPodcast", this.count);
+        }
+      }
+    
+  }
+</script>

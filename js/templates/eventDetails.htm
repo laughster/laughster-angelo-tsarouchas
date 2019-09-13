@@ -1,0 +1,102 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="events" class="page">
+        <div class="navbar"></div>
+        <div class="page-content">
+            <div id="wrapSingleEvent" class="wrapSingleEvent">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}"></a></div>
+                <div class="padd20 text-color-white text-align-center">
+                    <div class="size-14 strong">{{venuename}}</div>
+                    <div class="size-14 text-tiny">{{city}}, {{provincename}}</div>
+                    <div class="size-14 text-tiny">{{etimeformatted}}</div>
+                    {{#if ticketprice}}
+                        <div class="size-14 text-tiny">Tickets starting from {{priceformatted}}</div>
+                    {{/if}}
+                    <div class="padd5"></div>
+                    <div class="inline-block">
+                        <a href="#" class="btn button button-outline btn-outline-white button-small round0">+ ADD TO CALENDER</a>
+                    </div>
+                </div>
+                <div class="row no-gap">
+                    <div class="col-50">
+                        <a href="#" class="btn d-flex btn-facebook text-color-white size-12 round0">
+                            <i class="fab fa-facebook-square"></i>Share on Facebook
+                        </a>
+                    </div>
+                    <div class="col-50">
+                        <a href="#" class="btn d-flex btn-twitter text-color-white size-12 round0"><i class="fab fa-twitter"></i>Share on Twitter</a>
+                    </div>
+                </div>
+                {{#if googleimg}}
+                    <div class="wrapMap" data-target="gooogle-map-img"><a class="link external" target="_blank" href="{{googlemapurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="googlemapurl">{{googleimg}}</a></div>
+                {{/if}}
+                {{#js_if "this.performing || this.performingnot"}}
+                <div class="wrapPerformingComedians bg-color-violete padd15 paddLeftRight25 text-align-center" data-target="performing-comedians">
+                    <div class="text-color-white-opacity">Featuring standup comedy by:</div>
+                    <div class="paddTopBottom10">
+                        {{#if performing}}
+                            {{#each performing}}
+                                <div class="wrap-single-comedian inline-block text-color-white text-align-center margin-bottom-10">
+                                    {{#if applestoreurl}}
+                                    <a class="link external abs top0 left0 forcedZIndexHigher fullwidth fullheight" href="{{applestoreurl}}" target="_blank"></a>
+                                    {{/if}}
+                                    <div>
+                                        <div class="fullpadding nice-circle">
+                                            <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                                        </div>
+                                    </div>
+                                    <div class="padd5"></div>
+                                    <div class="strong size-12 lineheight120">{{firstname}} {{lastname}}</div>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                        {{#if performingnot}}
+                            {{#each performingnot}}
+                                <div class="wrap-single-comedian inline-block text-color-white text-align-center margin-bottom-10">
+                                    <div>
+                                        <div class="fullpadding nice-circle">
+                                            <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                                        </div>
+                                    </div>
+                                    <div class="padd5"></div>
+                                    <div class="strong size-12 lineheight120">{{fullname}}</div>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+                {{/js_if}}
+                </div>
+                {{#if ticketurl}}
+                    <div class="paddTopBottom10 paddLeftRight20 text-align-center bg-color-green text-color-white size-14">Click here to <a href="{{ticketurl}}" target="_blank" class="text-color-white link external" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="ticketurl"><u>BUY tickets online</u></a></div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+        pageInit: function () {
+        // do something on page init
+        var self = this;
+        window.setTimeout(function(){
+            loadEventGoogleImg(self, self.venueid);
+        }, 300);
+        window.setTimeout(function(){
+            loadEventPerformingComedians(self, self.id);
+        }, 300);
+      },
+      pageBeforeIn: function () {
+          $$("#wrapSingleEvent a[data-target='click-to-track']").trigger("click");
+      },
+      pageAfterIn: function () {
+          activateDynamicDetailsNavBar("events", "LIVE COMEDY");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicDetailsNavBar();
+      },
+    }
+  }
+</script>

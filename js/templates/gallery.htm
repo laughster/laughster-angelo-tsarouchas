@@ -1,0 +1,57 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="gallery" class="page">
+        <!-- Top Navbar -->
+        <div class="navbar"></div>
+        <!-- Scrollable page content -->
+        <div class="page-content">
+            <div id="wrapGallery" class="wrapWelcomeComedianIntro text-align-center">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="5"></a></div>
+                {{#if results}}
+                    <div class="list row no-gap">
+                    {{#each results}}
+                        <div class="sortableRow singleItem animated margin-bottom5 col-33" rel="sortItem" data-sorting="{{sorting}}" data-id="{{id}}">
+                            <a href="/gallerydetails/" class="link abs top0 left0 fullwidth fullheight forcedZIndexHigher" data-id="{{id}}" data-context='{{stringify this}}'></a>
+                            <div class="forcedZIndexLower">
+                                <div class="image-holder fullwidth">
+                                    <div class="bg-image fullpadding" style="background-image: url('{{imgAPP}}');"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    {{/each}}
+                    </div>
+                    <div class="paddLeftRight20 paddTopBottom20 animated" data-target="load-more-btn"><div class="padd10"></div><a href="#" class="btn button button-outline btn-outline-white round0" @click="loadMore" data-count="{{count}}" data-counttotal="{{counttotal}}">Load more</a></div>
+                {{/if}}    
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageInit: function () {
+        // do something on page init
+        var self = this;
+        loadComedianData(self, "loadComedianGalleries", this.count);
+      },
+      pageBeforeIn: function () {
+          $$("#wrapGallery a[data-target='click-to-track']").trigger("click");
+      },
+      pageAfterIn: function () {
+          activateDynamicNavBar("gallery");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicNavBar();
+      },
+    },
+    methods: {
+        loadMore: function() {
+          // ...
+          var self=this;
+          loadComedianData(self, "loadComedianGalleries", this.count);
+        }
+      }
+  }
+</script>

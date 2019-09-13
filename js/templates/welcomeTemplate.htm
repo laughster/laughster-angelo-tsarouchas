@@ -1,0 +1,237 @@
+<div id="wrapWelcomeComedianIntro" class="wrapWelcomeComedianIntro signature-bg text-align-center" style="background-image: url('{{comedian.signatureThumbnailAPP}}');">
+    <div class="inline-block lineheight140 paddTopBottom20">
+        <div class="fixed-width-150">
+            {{#unless welcomeScreen}}
+            {{#js_if "this.comedian.haveonlinestore == 1 && this.comedian.havepodcast != 2"}}
+                <div class="fullpadding nice-circle">
+            {{else}}
+                <div class="fullpadding nice-circle nice-circle1">
+            {{/js_if}}
+                <div class="badges-links abs info-badge fixed-width-23">
+                    <a class="circled relative fullpadding text-align-center" href="/bio/">
+                        <span class="abs left0 top50 fullwidth size-16"><i class="fas fa-info"></i></span>
+                    </a>
+                </div>
+                {{#js_if "this.comedian.haveonlinestore == 1 && this.comedian.havepodcast != 2"}}
+                    <div class="badges-links abs store-badge fixed-width-23">
+                        <a class="circled relative fullpadding text-align-center link external" target="_blank" href="{{comedian.onlinestoreurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="9" data-socialbutton="onlinestoreurl">
+                            <span class="abs left0 top50 fullwidth size-16"><i class="fas fa-dollar-sign"></i></span>
+                        </a>
+                    </div>
+                {{/js_if}}
+                <div class="circled bg-image abs top50 left50" style="background-image: url('{{comedian.iconthumbnailAPP}}');"></div>
+            </div>
+            {{else}}
+            <div class="fullpadding nice-circle nice-circle-no">
+                <div class="circled bg-image abs top50 left50" style="background-image: url('{{comedian.iconthumbnailAPP}}');"></div>
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+    <div class="form-with-field-white hidden" data-target="welcomeTemplate">
+        <form action="#" id="frmRegisterAPPUserFE" method="post" data-action="handlewithform">
+            <div class="hidden">
+                <input type="hidden" name="context" value="registerAPPUserFEStep1" />
+                <input type="hidden" name="aEOE_userappcountryname" value="{{comedian.userappcountryname}}" />
+                <input type="hidden" name="aEOE_userappprovincename" value="{{comedian.userappprovincename}}" />
+                <input type="hidden" name="aEOE_userappcountryname_iso_code" value="{{comedian.userappcountryname_iso_code}}" />
+                <input type="hidden" name="aEOE_comedianuserid" value="{{comedian.id}}" />
+            </div>
+            <div class="tabs-animated-wrap">
+                <div class="tabs">
+                    <div id="tab-1" class="page-content tab tab-active">
+                        <div class="block">
+                            <div class="padd15"></div>
+                            <div class="text-center bodytext br-nomobile text-color-white size-16">
+                                Welcome to the<br />
+                        {{comedian.firstname}} {{comedian.lastname}} APP ....my APP!<br />
+                        Let me know who you are and<br />
+                        where you’re from, this will help me<br />
+                        personalize your experience and<br />
+                        keep you informed about upcoming<br />
+                        events, breaking news and more!<br />
+                            </div>
+                            <div class="padd10"></div>
+                            <div class="fixed-width-250 margin-auto">
+                                <div class="fRow margin-bottom"><input name="aEOE_name" type="text" class="mf-input mf-required" placeholder="Full Name" required="required" data-validity-title="Please Provide your First and Last Name." autocomplete="off" pattern="^[a-zA-zČčĆćŽžĐđŠš]+\\s[a-zA-zzČčĆćŽžĐđŠš](+\\s)?+(\\s[a-zA-zzČčĆćŽžĐđŠš]+)?(+\\s)?$" /></div>
+                                <div class="fRow margin-bottom"><input name="aEOE_email" type="email" class="mf-input mf-required" placeholder="Email Address" required="required" autocomplete="off" /></div>
+                                <div class="fRow margin-bottom"><button type="submit" class="button button-fill fullwidth btn-green1 round0"><div class="size-16">NEXT</div></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="page-content tab">
+                        <div class="block">
+                            <div class="padd15"></div>
+                            <div class="text-center bodytext br-nomobile text-color-white size-16">
+                                Based on your current location<br />
+                                I think you reside in<br />
+                                <strong>{{comedian.userappcity}}, {{comedian.userappprovincename}}, {{comedian.userappcountryname}}</strong>
+                            </div>
+                            <div class="padd10"></div>
+                            <div class="bodytext text-color-white size-16">Is this correct?</div>
+                            <div class="padd10"></div>
+                            <div class="fixed-width-250 margin-auto">
+                                <div class="fRow margin-bottom"><button class="button button-fill fullwidth btn-green1 round0" data-action="addedititem" data-context="collectAPPUserData" data-target-tab="#tab-3"><div class="size-16">YES</div></button></div>
+                                <div class="fRow margin-bottom"><button class="button button-fill fullwidth btn-danger1 round0" data-action="addedititem" data-context="collectAPPUserData" data-target-tab="#tab-4"><div class="size-16">NO</div></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="page-content tab">
+                        <div class="block">
+                            <div class="padd15"></div>
+                            <div class="text-center bodytext br-nomobile text-color-white size-16">
+                                Sometimes comedy content can<br />
+                                get out of hand, let me know how old<br />
+                                you are and I'll make sure you only see<br />
+                                age appropriate content while on my APP.<br />
+                            </div>
+                            <div class="padd10"></div>
+                            <div class="fixed-width-250 margin-auto">
+                                <div class="fRow margin-bottom">
+                                    <div class="row">
+                                        <div class="col-25"></div>
+                                        <div class="col-50">
+                                            <input class="mf-input" type="text" placeholder="Date of Birth" readonly="readonly" id="calendar-default" name="aEOE_appuserborndate" />
+                                        </div>
+                                        <div class="col-25"></div>
+                                    </div>
+                                </div>
+                                <div class="fRow margin-bottom"><button type="submit" class="button button-fill fullwidth btn-green1 round0"><div class="size-16">LAUNCH APP</div></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="page-content tab">
+                        <div class="block">
+                            <div class="padd15"></div>
+                            <div class="text-center bodytext br-nomobile text-color-white size-16">
+                                  Please let me know where<br />
+                                  you live. We’ll use this information<br />
+                                  to inform you when I’m going to<br />
+                                  be performing in or close to<br />
+                                  your city!<br />
+                            </div>
+                            <div class="padd10"></div>
+                            <div class="fixed-width-250 margin-auto">
+                                <div class="fRow margin-bottom">
+                                    <select name="aEOE_appusercountry" class="mf-select" size="1" placeholder="Country" data-action="addedititem" data-context="wrapProvinceSBForCountry">
+                                        <option selected="selected" disabled="true" value="">Country</option>
+                                        {{#if countriesObject}}
+                                            {{#each countriesObject}}
+                                                <option value="{{id}}">{{name}}</option>
+                                            {{/each}}
+                                        {{/if}}
+                                    </select>
+                                </div>
+                                <div class="fRow margin-bottom">
+                                    <select name="aEOE_appuserprovince" class="mf-select" size="1" placeholder="State/Province">
+                                        <option selected="selected" disabled="true" value="">State/Province</option>
+                                    </select>
+                                </div>
+                                <div class="fRow margin-bottom"><input type="text" class="mf-input" name="aEOE_appusercity" placeholder="City" value="{{comedian.userappcity}}" /></div>
+                                <div class="fRow margin-bottom"><button type="submit" class="button button-fill fullwidth btn-green1 round0"><div class="size-16">CONTINUE</div></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-dashboard" class="page-content tab">
+                        <div class="block">
+                            <div class="text-align-center size-26 text-color-white text-tiny">
+                                {{comedian.firstname}} {{comedian.lastname}}
+                            </div>
+                            <div class="padd7"></div>
+                            <div class="text-align-center text-color-white strong size-16">Next Appearance:</div>
+                            <div class="text-align-center text-tiny text-color-white">
+                                {{#if comedian.nextevent}}
+                                    {{comedian.nextevent.edateformatted}}<br />
+                                    {{comedian.nextevent.venuename}}<br />
+                                    {{comedian.nextevent.city}}, {{comedian.nextevent.provincename}}
+                                {{else}}
+                                    {{comedian.firstname}} has not listed any upcoming<br />
+events. Don't worry, we'll notify you<br />
+when new events are added.
+                                {{/if}}
+                                
+                            </div>
+                            <div class="padd15"></div>
+                            <div class="row row-7">
+                                <div class="col-33">
+                                    <div class="fullpadding margin-bottom-10">
+                                        <a class="abs left0 top0 fullwidth fullheight btn-graphic" href="/events/" style="background-image: url('./images/app_events.png');">
+                                            <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Events</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-33">
+                                    <div class="fullpadding margin-bottom-10">
+                                        <a class="abs left0 top0 fullwidth fullheight btn-graphic" href="/videos/" style="background-image: url('./images/app_videos.png');">
+                                            <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Videos</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-33">
+                                    <div class="fullpadding margin-bottom-10">
+                                        <a class="abs left0 top0 fullwidth fullheight btn-graphic" href="/news/" style="background-image: url('./images/app_news.png');">
+                                            <div class="abs left0 bottom0 fullwidth padd7 text-align-center">News</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{#js_if "this.comedian.havepodcast != 2"}}
+                                    <div class="col-33">
+                                        <div class="fullpadding margin-bottom-10">
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic
+                                                {{#js_if "this.comedian.podcastonitunesurl !=''"}}
+                                                " href="/podcasts/" 
+                                                {{else}}
+                                                    {{#js_if "this.comedian.podcastonotherurl !=''"}}
+                                                        link external" href="{{comedian.podcastonotherurl}}" target="_blank" data-action="trackclicks" data-context="trackMainSection" data-etype="4" data-socialbutton="podcastonotherurl"
+                                                    {{/js_if}}
+                                                {{/js_if}}
+                                                style="background-image: url('./images/app_podcast.png');">
+                                                <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Podcast</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {{else}}
+                                    {{#js_if "this.comedian.haveonlinestore == 1"}}
+                                        <div class="col-33">
+                                            <div class="fullpadding margin-bottom-10">
+                                                <a class="abs left0 top0 fullwidth fullheight btn-graphic link external" href="{{comedian.onlinestoreurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="9" data-socialbutton="onlinestoreurl" style="background-image: url('./images/app_store.png');">
+                                                    <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Store</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {{/js_if}}
+                                
+                                {{/js_if}}
+                                <div class="col-33">
+                                    <div class="fullpadding margin-bottom-10">
+                                        <a class="abs left0 top0 fullwidth fullheight btn-graphic" href="/gallery/" style="background-image: url('./images/app_gallery.png');">
+                                            <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Gallery</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-33">
+                                    <div class="fullpadding margin-bottom-10">
+                                        <a class="abs left0 top0 fullwidth fullheight btn-graphic" href="/social/" style="background-image: url('./images/app_social.png');">
+                                            <div class="abs left0 bottom0 fullwidth padd7 text-align-center">Social</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden text-color-white size-12 item-input-info" data-target="ifwrong">
+                Sorry, something seems to be missing.<br />
+All fields are required to continue.
+            </div>
+        </form>
+    </div>
+</div>
+<div class="hidden">
+    <a href="#tab-1" class="tab-link">Tab 1</a>
+    <a href="#tab-2" class="tab-link">Tab 2</a>
+    <a href="#tab-3" class="tab-link">Tab 3</a>
+    <a href="#tab-4" class="tab-link">Tab 4</a>
+    <a href="#tab-dashboard" class="tab-link">Tab Dashboard</a>
+</div>

@@ -1,0 +1,66 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="videos" class="page">
+        <div class="navbar"></div>
+        <div class="page-content">
+            <div id="wrapSingleVideo" class="wrapSingleVideo">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="2" data-id="{{id}}"></a></div>
+                <div class="padd20">
+                    <div class="size-16 strong text-color-white text-align-left text-uppercase">
+                        {{categoryname}}
+                    </div>
+                    <div class="size-16 text-color-white text-align-left">
+                        {{title}}
+                    </div>
+                </div>
+                <div class="image-holder">
+                    <div class="bg-image fullpadding-60" style="background-image: url('{{imgbg}}');">
+                        <a href="#" class="abs top50 left50 text-color-white size-32">
+                            <span class="fa-stack">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-play fa-stack-1x text-color-red"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-align-center size-18 text-color-white-opacity text-tiny padd20">Share this video!</div>
+                <div class="text-align-center text-color-white">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_blank" class="text-color-white size-22 external">
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x text-color-red"></i>
+                        </span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet/?text={{title}}.&url={{urltoshare}}" target="_blank" class="text-color-white size-22 external">
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x text-color-red"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title={{title}}&summary=&source=" target="_blank" class="text-color-white size-22 external">
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-linkedin-in fa-stack-1x text-color-red"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageAfterIn: function () {
+          activateDynamicDetailsNavBar("videos", "VIDEOS");
+      },
+      pageBeforeIn: function () {
+          $$("#wrapSingleVideo a[data-target='click-to-track']").trigger("click");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicDetailsNavBar();
+      },
+    }
+  }
+</script>

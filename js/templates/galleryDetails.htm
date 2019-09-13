@@ -1,0 +1,31 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="galleries" class="page">
+        <div class="navbar"></div>
+        <div class="page-content">
+            <div id="wrapSingleGallery" class="wrapSingleGallery">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="5" data-id="{{id}}"></a></div>
+                <div class="image-holder">
+                    <img src="{{imgAPPLarge}}" />
+                </div>
+                <div class="paddLeftRight20 paddTopBottom10 animated"><div class="padd10"></div><a href="#" class="btn button button-outline btn-outline-white round0 back">Return to Gallery</a></div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageAfterIn: function () {
+          activateDynamicDetailsNavBar("gallery", "");
+      },
+      pageBeforeIn: function () {
+          $$("#wrapSingleVideo a[data-target='click-to-track']").trigger("click");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicDetailsNavBar();
+      },
+    }
+  }
+</script>

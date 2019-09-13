@@ -1,0 +1,83 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="news" class="page">
+        <!-- Top Navbar -->
+        <div class="navbar"></div>
+        <!-- Scrollable page content -->
+        <div class="page-content">
+            <div id="wrapNews" class="wrapWelcomeComedianIntro text-align-center">
+                <div class="hidden"><a data-target="click-to-track" href="#" data-action="trackclicks" data-context="trackMainSection" data-etype="3"></a></div>
+                {{#if results}}
+                    <div class="list">
+                        <ul>
+                        {{#each results}}
+                            <li class="swipeout sortableRow singleItem animated fadeIn" data-sorting="{{sorting}}" data-id="{{id}}">
+                                <div class="overflow">
+                                    <div class=" swipeout-content" rel="sortItem">
+                                        <div class="d-flex paddTopBottom15 align-items-center text-align-left item-content">
+                                            <div class="text-holder paddLeftRight5">
+                                                <div class="size-12 text-color-white-opacity">{{edateformatted}}</div>
+                                                <div class="wrapNewsTitle size-14 lineheight120 strong text-color-white">{{name}}
+                                                    {{# unless appnewsclicked}}
+                                                      <div class="paddLeftRight5 bg-green1 text-color-white strong round5 inline-block size-12">NEW</div>
+                                                    {{/unless}}
+                                                </div>
+                                            </div>
+                                            <div class="image-holder margin-bottom10 fixed-width-100">
+                                                <div class="bg-image fullpadding-60" style="background-image: url('{{imgAPP}}');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swipeout-actions-right">
+                                        <!-- Swipeout actions links/buttons -->
+                                        <a class="external" href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_blank">
+                                            <span class="fa-stack">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-facebook-f fa-stack-1x text-color-red"></i>
+                                            </span>
+                                        </a>
+                                        <a class="external" href="https://twitter.com/intent/tweet/?text={{name}}.&url={{urltoshare}}" target="_blank">
+                                            <span class="fa-stack">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-twitter fa-stack-1x text-color-red"></i>
+                                            </span>
+                                        </a>
+                                        <a class="external" href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title={{name}}&summary={{name}}&source=" target="_blank">
+                                            <span class="fa-stack">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-linkedin-in fa-stack-1x text-color-red"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                {{/if}}    
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageInit: function () {
+        // do something on page init
+        var self = this;
+        loadComedianData(self, "loadComedianNews");
+      },
+      pageBeforeIn: function () {
+          checkForFirstTime(3);
+          $$("#wrapNews a[data-target='click-to-track']").trigger("click");
+      },
+      pageAfterIn: function () {
+          activateDynamicNavBar("news");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicNavBar();
+      },
+    }
+  }
+</script>

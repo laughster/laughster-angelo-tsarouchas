@@ -1,0 +1,61 @@
+<template>
+    <!-- Initial Page, "data-name" contains page name -->
+    <div data-name="biography" class="page">
+        <!-- Top Navbar -->
+        <div class="navbar">
+            <div class="navbar-inner bg-color-darkred-transparent">
+                <div id="appid" class="title text-color-white">
+                    <div class="padd2">
+                        <div class="inline-block fixed-width-30">
+                            <a class="link back relative">
+                                <div class="circled bg-image fullpadding fullwidth" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                            </a>
+                        </div>
+                        <div class="inline-block size-16 text-tiny">&nbsp;{{firstname}} {{lastname}}</div>
+                    </div>
+                </div>
+                <div class="right size-28 paddLeftRight25 text-color-white"><i class="fas fa-info"></i></div>
+            </div>
+        </div>
+        <!-- Scrollable page content -->
+        <div class="page-content">
+            <div id="wrapBiography" class="wrapWelcomeComedianIntro text-align-center">
+                <div class="image-holder">
+                    <div class="bg-image fullpadding-60" style="background-image: url('{{biographythumbnailAPP}}');">
+                        <div class="bg-dark abs left0 bottom0 fullwidth forcedZIndexLower"></div>
+                        <div class="abs left0 bottom0 paddTopBottom20 paddLeftRight25 text-align-left forcedZIndexHigher">
+                            <div class="text-color-red size-26 text-uppercase lineheight120 strong">{{firstname}} {{lastname}}</div>
+                            <div class="text-color-white size-18 lineheight120 text-tiny">{{biographytitle}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bodytext text-color-white text-align-left paddTopBottom20 paddLeftRight25 size-14">
+                    {{biographydescription}}
+                </div>
+                <div class="fRow margin-bottom paddTopBottom20 paddLeftRight25"><a href="mailto:{{email}}" class="button button-fill fullwidth btn-green1 round0 link external" data-action="trackclicks" data-context="trackBooking"><div class="size-16">Book {{firstname}}</div></a></div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageInit: function () {
+          
+        // do something on page init
+        var self = this;
+        window.setTimeout(function(){
+            loadComedianData(self, "loadComedianBiography");
+        }, 200);
+        
+      },
+      pageAfterIn: function () {
+          activateDynamicNavBar("biography");
+      },
+      pageBeforeOut: function () {
+        // page has left the view
+        removeDynamicNavBar();
+      },
+    }
+  }
+</script>
