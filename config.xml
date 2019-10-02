@@ -95,6 +95,8 @@
     <plugin name="phonegap-plugin-push" spec="~2.3.0" />
     <plugin name="cordova-plugin-dialogs" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.4" />
+    <!-- White list https access to Youtube -->
+    <allow-navigation href="https://*youtube.com/*"/>
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
         <string>need location access to find things nearby</string>
     </edit-config>
