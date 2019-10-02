@@ -3,7 +3,7 @@
   <description>LAUGHSTER</description>
   <author href="http://www.intellicomstudios.net" email="info@intellicomstudios.net">Robin Ozolins</author>
   <content src="index.html" />
-    <access origin="https://www.laughsterapp.com/" />
+    <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -98,7 +98,9 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.3.4" />
     <!-- White list https access to Youtube -->
     <allow-navigation href="https://*youtube.com/*"/>
-    <allow-navigation href="http://*"/>
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
         <string>need location access to find things nearby</string>
     </edit-config>
