@@ -13,7 +13,8 @@ var pathToJSTemplates="js/templates/";
 
 var currentSectionTitle="";
 
-var GOOGLE_MAPS_STATIC_V3_API_KEY;
+var GOOGLE_MAPS_STATIC_V3_API_KEY="AIzaSyDHD5QKg6Z6pBIPLjzo2VOTvi37t6IRJ_o";
+var appID=455847837;
 
 var currentLocation=false;
 
@@ -32,7 +33,7 @@ var app = new Framework7({
     // App root element
     root: '#app',
     // App Name
-    name: 'LAUGHSTER',
+    name: 'Funny Greek',
     // App id
     id: 'com.laughsterapp.app2',
     cache: false,
@@ -51,20 +52,10 @@ var viewLoginOptions={
           name: 'login',  
           path: '/',
           componentUrl: pathToJSTemplates + 'login.htm',
-          on: {
-              pageInit: function() {
-                    var self = this;
-                  
-                    //Read a default config for this comedian APP
-                    readTextFile('laughsterapp.txt', 'getJSON');
-                }
-            },
           tabs: [
             // First (default) tab has the same url as the page itself
-            {
-                // Tab path
+            { 
                 path: '/',
-                // Tab id
                 id: 'welcome-tab-1',
                 componentUrl: pathToJSTemplates + 'welcome-tab-1.htm'
             },
@@ -85,8 +76,8 @@ var viewLoginOptions={
               path: '/welcome-tab-4/',
               id: 'welcome-tab-4',
               componentUrl: pathToJSTemplates + 'welcome-tab-4.htm'
-            },
-          ],
+            }
+          ]
         }
   ],
   url: "/"
@@ -97,15 +88,7 @@ var mainViewOptions={
         {
           name: 'home',  
           path: '/',
-          componentUrl: pathToJSTemplates + 'home.htm',
-          on: {
-              pageInit: function() {
-                    var self = this;
-                  
-                    //Read a default config for this comedian APP
-                    readTextFile('laughsterapp.txt', 'getJSON');
-                }
-            },
+          componentUrl: pathToJSTemplates + 'home.htm'
         },
         {
             name: 'events',
@@ -709,7 +692,6 @@ DP.validateForm = function(){
                                             if(data["success"]==1){
                                                 switch(whatForm){
                                                     case "frmRegisterAPPUserFE":
-                                                        var appID=$$("input[name='appID']").val();
                                                         var tempObj={};
                                                         tempObj.userappid=data["userappid"];
                                                         $$("input[name='userAPPID']").val(data["userappid"]);
@@ -751,7 +733,6 @@ DP.validateForm = function(){
      var $this=$$(this);
      var currentContext=$this.attr("data-context");
      var postData={context: $this.attr("data-context")};
-     var appID=$$("input[name='appID']").val();
      var userAPPIDCurrent=$$("input[name='userAPPID']").val();
      if(appID!==null && appID!==""){
         postData["appid"]=appID;
@@ -796,7 +777,6 @@ DP.validateForm = function(){
     
     switch(postData["context"]){
         case "rsvpEvent":
-            var appID=$$("input[name='appID']").val();
             var userAPPIDCurrent=$$("input[name='userAPPID']").val();
             if(appID!==null && appID!==""){
                 postData["appid"]=appID;
@@ -837,35 +817,6 @@ $$(document).on("change", "select[data-action='addedititem']", function(e){
 $$(window).on('orientationchange',function(e){
   console.log(e.orientation)
 });
-
-
-function readTextFile(file, actionAfter){
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                switch(actionAfter){
-                    default:
-                        return allText;
-                    break;
-                    case "getJSON":
-                        var obj=JSON.parse(allText);
-                        if(obj){
-                            GOOGLE_MAPS_STATIC_V3_API_KEY=obj["gapikey"];
-                            $$("input[name='appID']").val(obj["appid"]);
-                        }
-                    break;
-                }
-            }
-        }
-    }
-    rawFile.send(null);
-}
 
 function loadHomeAdvancedComedian(self, appID){
     if(appID!==null && appID!==""){
@@ -1111,7 +1062,6 @@ function loadPlayList(self, context, id, flag){
 }
 
 function loadComedianData(self, context){
-    var appID=$$("input[name='appID']").val();
     var userAPPID=$$("input[name='userAPPID']").val();
     
     if(appID!==null && appID!==""){

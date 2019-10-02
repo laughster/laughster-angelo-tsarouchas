@@ -37,8 +37,8 @@
                                 <source src="{{url}}" type="{{type}}">
                             </audio>
                             <div class="wrap-custom-player-controls">
-                                <div class="buttons text-align-center">
-                                    <div class="float-left paddTopBottom15">
+                                <div class="buttons text-align-center d-flex align-items-center justify-content-space-between">
+                                    <div class="">
                                         <a id="prevplay" href="#" @click="playNext({{id}}, 'prev')" class="size-44 wrap-custom-player-playbutton link">
                                             <div class="bg-prev-button bg-image animated fadeInLeft"></div>
                                         </a>
@@ -54,7 +54,7 @@
                                             <div class="bg-pause-button bg-image animated zoomIn"></div>
                                         </a>
                                     </div>
-                                    <div class="float-right paddTopBottom15">
+                                    <div class="">
                                         <a id="nextplay" href="#" @click="playNext({{id}}, 'next')" class="size-44 wrap-custom-player-playbutton link">
                                             <div class="bg-next-button bg-image animated fadeInRight"></div>
                                         </a>

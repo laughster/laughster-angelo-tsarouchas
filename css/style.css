@@ -495,7 +495,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a1144', end
 
 .signature-bg{
     background-position: center 320px;
-    background-size: 116% auto;
+    background-size: calc(100% + 16px) auto;
 }
 
 .blurred-outer{
