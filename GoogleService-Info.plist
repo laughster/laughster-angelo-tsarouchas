@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>754387915047-jt07a7m16dsgtb9h2n1io5bji7cv9nbm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.754387915047-jt07a7m16dsgtb9h2n1io5bji7cv9nbm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEXGTRp40PkZXqJOLy6_bnuH9SfcMigGQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>754387915047</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.laughsterapp.app</string>
+	<key>PROJECT_ID</key>
+	<string>laughsterap-push-notifications</string>
+	<key>STORAGE_BUCKET</key>
+	<string>laughsterap-push-notifications.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:754387915047:ios:b444be48d056a3837b9902</string>
+	<key>DATABASE_URL</key>
+	<string>https://laughsterap-push-notifications.firebaseio.com</string>
+</dict>
+</plist>
