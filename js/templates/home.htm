@@ -262,8 +262,9 @@
                 loadHomeAdvancedComedian(self, appID);
             }
             loadComedianData(self, "loadComedianSectionViewStatistic");
+            pushSetupComedian(appID);
             if(!homePageReloaded){
-                pushSetupComedian(appID);
+                
                 setTimeout(function(){
                     loadComedianData(self, "loadComedianGalleries");
                 }, 1000);
