@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "754387915047",
+    "firebase_url": "https://laughsterap-push-notifications.firebaseio.com",
+    "project_id": "laughsterap-push-notifications",
+    "storage_bucket": "laughsterap-push-notifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754387915047:android:43182b122fcf489e7b9902",
+        "android_client_info": {
+          "package_name": "com.laughsterapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754387915047-c7jb1lamgi14ciigk4a6255djjaibi97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNir0yj1eTRL5ztXo3zSqmdTQq8cRU6yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754387915047-c7jb1lamgi14ciigk4a6255djjaibi97.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "754387915047-jt07a7m16dsgtb9h2n1io5bji7cv9nbm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.laughsterapp.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
