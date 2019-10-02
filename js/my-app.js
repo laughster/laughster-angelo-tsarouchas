@@ -905,6 +905,82 @@ function loadHomeAdvancedComedian(self, appID){
     }
 }
 
+function pushSetupComedian(appID){
+    if(appID!==null && appID!==""){
+        var userAPPID=$$("input[name='userAPPID']").val();
+        
+        if(localStorage.getItem("userAPPInfo")!==null){
+            var simpleComedian=JSON.parse(localStorage.getItem("userAPPInfo"));
+            if(typeof(simpleComedian)!=="undefined"){
+                if(localStorage.getItem("userAPPLoggedIn")!==null){
+                    userAPPID=localStorage.getItem("userAPPLoggedIn");
+                }
+            }
+        }
+        
+        if(isCordovaApp) {
+            var push = PushNotification.init({
+                "android": {},
+                "ios": {
+                  "sound": true,
+                  "alert": true,
+                  "badge": true
+                },
+                "windows": {}
+            });
+
+            push.on('registration', function(data) {
+                console.log("Comedian ID: " + appID);
+                console.log("registration event: " + data.registrationId);
+                var oldRegId = localStorage.getItem('registrationId');
+                if (oldRegId !== data.registrationId) {
+                    // Save new registration ID
+                    localStorage.setItem('registrationId', data.registrationId);
+                    // Post registrationId to your app server as the value has changed
+                }
+                var newRegID=localStorage.getItem('registrationId');
+                
+                var postData={context: "pushSetupComedian", appid: appID, userappid: userAPPID, senderid: newRegID, oldsenderid: oldRegId};
+                app.request.post(
+                    pathToAjaxDispatcher, 
+                    postData, 
+                    function(data){
+                        isAjaxLoaded=false;
+                        if(data["success"]==1){
+                            console.log("Success: " + appID + " " + newRegID);
+                        }else{
+                            console.log(data["message"]);
+                        }
+                    }, function(xhr, status){
+                        isAjaxLoaded=false;
+                        console.log(status);
+                    },
+                    "json"
+                );
+            });
+
+            push.on('error', function(e) {
+                console.log("push error = " + e.message);
+            });
+
+            push.on('notification', function(data) {
+                  console.log('notification event');
+                  navigator.notification.alert(
+                      data.message,         // message
+                      null,                 // callback
+                      data.title,           // title
+                      'Ok'                  // buttonName
+                  );
+              });
+            }
+        
+        
+        
+        
+        
+    }
+}
+
 function loadHomeBasicComedian(self, appID){
     if(appID!==null && appID!==""){
         var postData={context: "loadHomeBasicComedian", appid: appID};

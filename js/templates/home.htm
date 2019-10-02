@@ -263,6 +263,7 @@
             }
             loadComedianData(self, "loadComedianSectionViewStatistic");
             if(!homePageReloaded){
+                pushSetupComedian(appID);
                 setTimeout(function(){
                     loadComedianData(self, "loadComedianGalleries");
                 }, 1000);
