@@ -89,7 +89,7 @@
     <preference name="orienation" value="portrait" />
     <preference name="permissions" value="none" />
     <preference name="target-device" value="handset" />
-    <preference name="deployment-target" value="9.0" />
+    <preference name="deployment-target" value="8.0" />
     <preference name="DisallowOverscroll" value="true"/>
     
     <plugin name="phonegap-plugin-push" spec="~2.3.0" />
@@ -98,5 +98,5 @@
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
         <string>need location access to find things nearby</string>
     </edit-config>
-    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
 </widget>

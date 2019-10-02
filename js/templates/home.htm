@@ -262,7 +262,10 @@
                 loadHomeAdvancedComedian(self, appID);
             }
             loadComedianData(self, "loadComedianSectionViewStatistic");
-            pushSetupComedian(appID);
+            setTimeout(function(){
+                pushSetupComedian(appID);
+            }, 2000);
+            
             if(!homePageReloaded){
                 
                 setTimeout(function(){
