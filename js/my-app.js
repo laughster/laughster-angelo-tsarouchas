@@ -1005,7 +1005,6 @@ function loadNextTab(id){
 }
 
 function loadWelcomeTabLocationComedian(self){
-    if(isCordovaApp) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var latitude=position.coords.latitude;
@@ -1030,7 +1029,6 @@ function loadWelcomeTabLocationComedian(self){
         }else{
             dynamicPopup.emit('open-custom', "Geolocation is not supported.");
         }
-    }
 }
 
 function stopPlayer(player, btn, bufferBar){
