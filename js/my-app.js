@@ -1005,29 +1005,31 @@ function loadNextTab(id){
 }
 
 function loadWelcomeTabLocationComedian(self){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var latitude=position.coords.latitude;
-            var longitude=position.coords.longitude;
-            
-             app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
-  .then(
-    function success (response) {
-      currentLocation=getLocationParameters(JSON.parse(response));
-      currentLocation.classInitHidden="";
-      self.$setState(currentLocation);
-    },
-    function fail (status) {
-      console.log('Request failed.  Returned status of',
-                  status);
-    }
-   );
-            
-        }, function(){
-            console.log("navigator.geolocation.getCurrentPosition - Error");
-        });
-    }else{
-        dynamicPopup.emit('open-custom', "Geolocation is not supported.");
+    if(isCordovaApp) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude=position.coords.latitude;
+                var longitude=position.coords.longitude;
+
+                 app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
+      .then(
+        function success (response) {
+          currentLocation=getLocationParameters(JSON.parse(response));
+          currentLocation.classInitHidden="";
+          self.$setState(currentLocation);
+        },
+        function fail (status) {
+          console.log('Request failed.  Returned status of',
+                      status);
+        }
+       );
+
+            }, function(){
+                console.log("navigator.geolocation.getCurrentPosition - Error");
+            });
+        }else{
+            dynamicPopup.emit('open-custom', "Geolocation is not supported.");
+        }
     }
 }
 
@@ -1313,32 +1315,6 @@ function createCORSRequest(method, url) {
 
   }
   return xhr;
-}
-
-function getCurrentLocation(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var latitude=position.coords.latitude;
-            var longitude=position.coords.longitude;
-            
-            app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
-  .then(
-    function success (response) {
-      currentLocation=getLocationParameters(JSON.parse(response));
-      console.log(currentLocation);
-    },
-    function fail (status) {
-      console.log('Request failed.  Returned status of',
-                  status)
-    }
-   )
-            
-        }, function(){
-            console.log("navigator.geolocation.getCurrentPosition - Error");
-        });
-    }else{
-        dynamicPopup.emit('open-custom', "Geolocation is not supported.");
-    }
 }
 
 function getAddress (latitude, longitude) {
