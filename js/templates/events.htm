@@ -133,8 +133,6 @@
             postData["id"]=parseInt(id);
             if(postData["id"]>0){
                 
-                var appID=this.$$("input[name='appID']").val();
-                
                 if(appID!==null && appID!==""){
                     postData["appid"]=appID;
                     if(localStorage.getItem("userAPPInfo")!==null){
