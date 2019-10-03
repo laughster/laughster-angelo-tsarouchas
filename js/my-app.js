@@ -172,7 +172,7 @@ $$(document).on('deviceready', function(){
  });
  
  if(!isCordovaApp) {
-    setupGeoLocation();
+   // setupGeoLocation();
  }
  
  $$.fn.setCustomValidityFormTranslations=function(){
@@ -1764,13 +1764,14 @@ function togglePlay(player, self) {
   }
   
   function setupGeoLocation(){
-      if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var latitude=position.coords.latitude;
-                var longitude=position.coords.longitude;
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
+      
+    var onSuccess = function(position) {
+        var latitude=position.coords.latitude;
+        var longitude=position.coords.longitude;
 
-                 app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
-      .then(
+         app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
+         .then(
         function success (response) {
           currentLocation=getLocationParameters(JSON.parse(response));
           currentLocation.classInitHidden="";
@@ -1781,13 +1782,14 @@ function togglePlay(player, self) {
                       status);
         }
        );
+    };
 
-            }, function(){
-                console.log("navigator.geolocation.getCurrentPosition - Error");
-            });
-        }else{
-            dynamicPopup.emit('open-custom', "Geolocation is not supported.");
-        }
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        console.log("navigator.geolocation.getCurrentPosition - Error");
+    }
+  
   }
   
   function setupPushInit(){
