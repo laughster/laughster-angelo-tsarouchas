@@ -1414,6 +1414,10 @@ div.wrapMap + div.wrapSocialButtons{
     padding-top: 100px;
 }
 
+ div.wrapPerformingComedians + div.wrapSocialButtons{
+     margin-top: -40px;
+ }
+
 div.wrapMap img{
     vertical-align: middle;
     width: 100%;

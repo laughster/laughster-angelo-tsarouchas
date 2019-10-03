@@ -167,9 +167,13 @@ $$(document).on('deviceready', function(){
         setupGeoLocation();
         setupPushInit();
     }else{
-
+        
     }
  });
+ 
+ if(!isCordovaApp) {
+    setupGeoLocation();
+ }
  
  $$.fn.setCustomValidityFormTranslations=function(){
     return this.each(function(){
