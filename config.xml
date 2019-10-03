@@ -3,7 +3,7 @@
   <description>Funny Greek</description>
   <author href="http://www.intellicomstudios.net" email="info@intellicomstudios.net">Robin Ozolins</author>
   <content src="index.html" />
-    <access origin="*" />
+    <access origin="https://www.laughsterapp.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -85,7 +85,7 @@
         
         <resource-file src="GoogleService-Info.plist" />
     </platform>
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="1000" />
     <preference name="orienation" value="portrait" />
     <preference name="permissions" value="none" />
     <preference name="target-device" value="handset" />
@@ -97,10 +97,6 @@
     <plugin name="cordova-plugin-inappbrowser" spec="~3.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.4" />
     <!-- White list https access to Youtube -->
-    <allow-navigation href="https://*youtube.com/*"/>
-    <allow-navigation href="http://*/*" />
-    <allow-navigation href="https://*/*" />
-    <allow-navigation href="data:*" />
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
         <string>need location access to find things nearby</string> 
     </edit-config>
