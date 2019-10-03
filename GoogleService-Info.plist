@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>754387915047-jt07a7m16dsgtb9h2n1io5bji7cv9nbm.apps.googleusercontent.com</string>
+	<string>261295183908-kkn5l7v7bpquprj4umhju3sib01l05n5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.754387915047-jt07a7m16dsgtb9h2n1io5bji7cv9nbm</string>
+	<string>com.googleusercontent.apps.261295183908-kkn5l7v7bpquprj4umhju3sib01l05n5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCEXGTRp40PkZXqJOLy6_bnuH9SfcMigGQ</string>
+	<string>AIzaSyDX8vTWo4gt9ZUeXJdAZ0FNRv_MEEAjNvs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>754387915047</string>
+	<string>261295183908</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.laughsterapp.app</string>
 	<key>PROJECT_ID</key>
-	<string>laughsterap-push-notifications</string>
+	<string>laughster-push-notifications</string>
 	<key>STORAGE_BUCKET</key>
-	<string>laughsterap-push-notifications.appspot.com</string>
+	<string>laughster-push-notifications.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:754387915047:ios:b444be48d056a3837b9902</string>
+	<string>1:261295183908:ios:696b9cd32f0d88ff4d60b1</string>
 	<key>DATABASE_URL</key>
-	<string>https://laughsterap-push-notifications.firebaseio.com</string>
+	<string>https://laughster-push-notifications.firebaseio.com</string>
 </dict>
 </plist>
