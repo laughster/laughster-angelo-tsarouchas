@@ -1764,9 +1764,13 @@ function togglePlay(player, self) {
   }
   
   function setupGeoLocation(){
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
+    navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);  
       
-    var onSuccess = function(position) {
+    
+  
+  }
+  
+  var onGeolocationSuccess = function(position) {
         var latitude=position.coords.latitude;
         var longitude=position.coords.longitude;
 
@@ -1784,13 +1788,11 @@ function togglePlay(player, self) {
        );
     };
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        console.log("navigator.geolocation.getCurrentPosition - Error");
-    }
-  
-  }
+// onError Callback receives a PositionError object
+//
+function onGeolocationError(error) {
+    console.log("navigator.geolocation.getCurrentPosition - Error");
+}
   
   function setupPushInit(){
     var push = PushNotification.init({
