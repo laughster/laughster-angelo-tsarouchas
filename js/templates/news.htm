@@ -49,7 +49,7 @@
                                 <div class="swipeout-content" rel="sortItem">
                                     <div class="bg-color-white">
                                         <div class="image-holder round5 overflow bg-color-lightgray1">
-                                            <a class="link external abs top0 left0 fullwidth fullheight" href="{{url}}" target="_blank" data-action="trackclicks" data-context="trackMainSection" data-etype="3" data-socialbutton="url"></a>
+                                            <a class="link external abs top0 left0 fullwidth fullheight" href="{{url}}" target="_system" data-action="trackclicks" data-context="trackMainSection" data-etype="3" data-socialbutton="url"></a>
                                                 <div id="data-background-{{id}}" class="bg-image fullpadding-60 lazy lazy-fade-in" data-background="{{imgAPP}}"></div>
                                         </div>
                                         <div class="text-holder">
@@ -60,7 +60,7 @@
                                             {{else}}
                                                 <div class="wrapNewsTitle size-14 lineheight120 strong text-color-violete">
                                             {{/js_if}}
-                                            <a class="link external text-color-violete" href="{{url}}" target="_blank" data-action="trackclicks" data-context="trackMainSection" data-etype="3" data-socialbutton="url">
+                                            <a class="link external text-color-violete" href="{{url}}" target="_system" data-action="trackclicks" data-context="trackMainSection" data-etype="3" data-socialbutton="url">
                                                 {{name}}
                                             </a>
                                             </div>
@@ -75,7 +75,7 @@
                                         {{else}}
                                         <div class="paddTopBottom5">
                                         {{/js_if}}
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_blank" class="text-color-facebook size-22 external">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_system" class="text-color-facebook size-22 external">
                                                 <span class="fa-stack">
                                                     <i class="fas fa-circle fa-stack-2x"></i>
                                                     <i class="fab fa-facebook-f fa-stack-1x text-color-white"></i>
@@ -87,7 +87,7 @@
                                         {{else}}
                                         <div class="paddTopBottom5">
                                         {{/js_if}}
-                                            <a href="https://twitter.com/intent/tweet/?text={{../userinfo.firstname}} {{../userinfo.lastname}} in the news: {{nametoshare}}.&url={{urltoshare}}" target="_blank" class="text-color-twitter size-22 external">
+                                            <a href="https://twitter.com/intent/tweet/?text={{../userinfo.firstname}} {{../userinfo.lastname}} in the news: {{nametoshare}}.&url={{urltoshare}}" target="_system" class="text-color-twitter size-22 external">
                                                 <span class="fa-stack">
                                                     <i class="fas fa-circle fa-stack-2x"></i>
                                                     <i class="fab fa-twitter fa-stack-1x text-color-white"></i>
@@ -99,7 +99,7 @@
                                         {{else}}
                                         <div class="paddTopBottom5">
                                         {{/js_if}}
-                                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title={{../userinfo.firstname}} {{../userinfo.lastname}} in the news: {{nametoshare}}&summary=&source=" target="_blank" class="text-color-linkedin size-22 external">
+                                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title={{../userinfo.firstname}} {{../userinfo.lastname}} in the news: {{nametoshare}}&summary=&source=" target="_system" class="text-color-linkedin size-22 external">
                                                 <span class="fa-stack">
                                                     <i class="fas fa-circle fa-stack-2x"></i>
                                                     <i class="fab fa-linkedin-in fa-stack-1x text-color-white"></i>
