@@ -35,7 +35,7 @@
                             <div class="padd10"></div>
                             <div class="text-align-center">
                                 <div class="inline-block text-align-center">
-                                    <a href="{{ticketurl}}" target="_blank" class="link external button btn-blue round50" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="ticketurl"><div class="size-16 paddTopBottom10 paddLeftRight20">BUY TICKETS</div></a>
+                                    <a href="{{ticketurl}}" target="_system" class="link external button btn-blue round50" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="ticketurl"><div class="size-16 paddTopBottom10 paddLeftRight20">BUY TICKETS</div></a>
                                 </div>
                             </div>
                         {{/js_if}}
@@ -44,7 +44,7 @@
                 
                 {{#if googleimg}}
                     <div class="padd10"></div>
-                    <div class="wrapMap forcedZIndexHigher" data-target="gooogle-map-img"><a class="link external relative" target="_blank" href="{{googlemapurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="googlemapurl">{{googleimg}}</a></div>
+                    <div class="wrapMap forcedZIndexHigher" data-target="gooogle-map-img"><a class="link external relative" target="_system" href="{{googlemapurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="googlemapurl">{{googleimg}}</a></div>
                 {{/if}}
                 {{#js_if "this.performing || this.performingnot"}}
                     <div class="wrapPerformingComedians overflow bg-color-lightgray forcedZIndexLower">
@@ -57,7 +57,7 @@
                                     {{#each performing}}
                                         <div class="wrap-single-comedian swiper-slide inline-block text-color-violete text-align-center margin-bottom-10">
                                             {{#if applestoreurl}}
-                                            <a class="link external abs top0 left0 forcedZIndexHigher fullwidth fullheight" href="{{applestoreurl}}" target="_blank"></a>
+                                            <a class="link external abs top0 left0 forcedZIndexHigher fullwidth fullheight" href="{{applestoreurl}}" target="_system"></a>
                                             {{/if}}
                                             <div>
                                                 <div class="fullpadding nice-circle">
@@ -89,19 +89,19 @@
                 <div class="wrapSocialButtons bg-color-lightgray">
                     <div class="padd10"></div>
                     <div class="text-align-center text-color-white">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{urltosharefb}}" target="_blank" class="text-color-facebook size-22 external">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{urltosharefb}}" target="_system" class="text-color-facebook size-22 external">
                             <span class="fa-stack">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x text-color-white"></i>
                             </span>
                         </a>
-                        <a href="https://twitter.com/intent/tweet/?text=Laugh at {{firstname}} {{lastname}} Live {{edateformatted}} at {{venuenametoshare}} in {{city}}, {{provincename}}&url={{urltoshare}}" target="_blank" class="text-color-twitter size-22 external">
+                        <a href="https://twitter.com/intent/tweet/?text=Laugh at {{firstname}} {{lastname}} Live {{edateformatted}} at {{venuenametoshare}} in {{city}}, {{provincename}}&url={{urltoshare}}" target="_system" class="text-color-twitter size-22 external">
                             <span class="fa-stack">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-twitter fa-stack-1x text-color-white"></i>
                             </span>
                         </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title=Laugh at {{firstname}} {{lastname}} Live {{edateformatted}} at {{venuenametoshare}} in {{city}}, {{provincename}}&summary=&source=" target="_blank" class="text-color-linkedin size-22 external">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title=Laugh at {{firstname}} {{lastname}} Live {{edateformatted}} at {{venuenametoshare}} in {{city}}, {{provincename}}&summary=&source=" target="_system" class="text-color-linkedin size-22 external">
                             <span class="fa-stack">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-linkedin-in fa-stack-1x text-color-white"></i>

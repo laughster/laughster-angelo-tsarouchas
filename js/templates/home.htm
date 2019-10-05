@@ -29,7 +29,7 @@
                                             <span class="badge color-red size-14 {{classStoreBtnBadgeHidden}}">{{newstoreproductsadded}}</span>
                                         {{/if}}
                                     </div>
-                                    <a class="text-color-blue1 size-24 animated abs top0 left0 fullwidth fullheight {{classStoreBtnHidden}} external forcedZIndexLower bg-image" href="{{onlinestoreurl}}" target="_blank" data-action="trackclicks" data-context="trackMainSection" data-etype="9" data-socialbutton="onlinestoreurl" style="background-image: url('./images/laughster_shopping_cart.png');">
+                                    <a class="text-color-blue1 size-24 animated abs top0 left0 fullwidth fullheight {{classStoreBtnHidden}} external forcedZIndexLower bg-image" href="{{onlinestoreurl}}" target="_system" data-action="trackclicks" data-context="trackMainSection" data-etype="9" data-socialbutton="onlinestoreurl" style="background-image: url('./images/laughster_shopping_cart.png');">
                                     </a>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                         </div>
                         {{#if twitterhandle}}
                         <div class="text-align-center size-16 text-tiny text-color-white-opacity animated fadeInUp {{classInitHidden}}">
-                            <a class="link external text-color-white-opacity" href="https://twitter.com/{{twitterhandle}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="twitterhandle">@{{twitterhandle}}</a>
+                            <a class="link external text-color-white-opacity" href="https://twitter.com/{{twitterhandle}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="twitterhandle">@{{twitterhandle}}</a>
                         </div>
                         {{/if}}
                         <div class="text-align-center size-16 text-tiny text-color-white-opacity animated fadeInUp {{classInitHidden}}">
@@ -101,7 +101,7 @@
                                     <div class="col-25">
                                         <div class="fullpadding margin-bottom-10">
                                             {{#js_if "this.onlyPodcast && this.onlyPodcast.isonitunes == 2"}}
-                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link external" href="{{onlyPodcast.url}}" target="_blank" style="background-image: url('./images/app_podcast.png');">
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link external" href="{{onlyPodcast.url}}" target="_system" style="background-image: url('./images/app_podcast.png');">
                                 
                                             {{else}}
                                             <a class="abs left0 top0 fullwidth fullheight btn-graphic link" href="/podcasts/" style="background-image: url('./images/app_podcast.png');">
@@ -136,7 +136,7 @@
                     <div class="wrap-masonry">
                         {{#each results}}
                             <div class="sortableRow singleItem animated fadeIn float-left" rel="sortItem" data-sorting="{{sorting}}" data-id="{{id}}" data-index="{{@index}}">
-                                <a href="https://instagram.com/p/{{shortcode}}" class="link external abs top0 left0 fullwidth fullheight forcedZIndexHigher" data-id="{{id}}" target="_blank"></a>
+                                <a href="https://instagram.com/p/{{shortcode}}" class="link external abs top0 left0 fullwidth fullheight forcedZIndexHigher" data-id="{{id}}" target="_system"></a>
                                 <div class="forcedZIndexLower">
                                     <div class="image-holder fullwidth">
                                         <div class="bg-image fullpadding" style="background-image: url('{{imgAPP}}');"></div>
@@ -153,7 +153,7 @@
                 {{#if wwwurl}}
                     <div class="fRow text-align-center">
                         <div class="inline-block">
-                            <a class="external button button-fill btn-blue round50" href="{{wwwurl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="wwwurl"><div class="size-16 paddLeftRight20 paddTopBottom10">VISIT MY WEBSITE</div></a>
+                            <a class="external button button-fill btn-blue round50" href="{{wwwurl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="wwwurl"><div class="size-16 paddLeftRight20 paddTopBottom10">VISIT MY WEBSITE</div></a>
                         </div>
                     </div>
                     <div class="padd10"></div>
@@ -162,7 +162,7 @@
                     <div class="inline-block text-align-center">
                         {{#if facebookurl}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{facebookurl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="facebookurl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{facebookurl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="facebookurl">
                                     <div class="circled abs left0 fullwidth text-color-darkblue text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-facebook-f abs left50 top50"></i>
@@ -173,7 +173,7 @@
                         {{/if}}
                         {{#if twitterhandle}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="https://twitter.com/{{twitterhandle}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="twitterhandle">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="https://twitter.com/{{twitterhandle}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="twitterhandle">
                                     <div class="circled abs left0 fullwidth text-color-darkblue text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-twitter abs left50 top50"></i>
@@ -184,7 +184,7 @@
                         {{/if}}
                         {{#if instagramurl}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{instagramurl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="instagramurl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{instagramurl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="instagramurl">
                                     <div class="circled abs left0 fullwidth text-color-darkblue text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-instagram abs left50 top50"></i>
@@ -195,7 +195,7 @@
                         {{/if}}
                         {{#if youtubeurl}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{youtubeurl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="youtubeurl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{youtubeurl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="youtubeurl">
                                     <div class="circled abs left0 fullwidth text-color-darkblue text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-youtube abs left50 top50"></i>
@@ -206,7 +206,7 @@
                         {{/if}}
                         {{#if linkedinurl}}
                             <div class="inline-block fixed-width-50 padd5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{linkedinurl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="linkedinurl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{linkedinurl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="linkedinurl">
                                     <div class="circled abs left0 fullwidth text-color-darkblue text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-linkedin-in abs left50 top50"></i>
@@ -217,7 +217,7 @@
                         {{/if}}
                         {{#if imdburl}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{imdburl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="imdburl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{imdburl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="imdburl">
                                     <div class="circled abs left0 fullwidth text-color-white text-align-center size-18">
                                         <div class="abs left0 top50 fullwidth">
                                             IMDB
@@ -228,7 +228,7 @@
                         {{/if}}
                         {{#if vimeourl}}
                             <div class="inline-block fixed-width-50 padd5 marginLeftRight5">
-                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{vimeourl}}" target="_blank" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="vimeourl">
+                                <a class="singleItem animated fadeIn link external fullpadding relative margin-bottom" href="{{vimeourl}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="vimeourl">
                                     <div class="circled abs left0 fullwidth text-color-white text-align-center size-26">
                                         <div class="abs left0 top50 fullwidth">
                                             <i class="fab fa-vimeo-v abs left50 top50"></i>

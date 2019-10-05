@@ -44,7 +44,7 @@
                                 <div class="swiper-slide singleItem inline-block animated fixed-width-90 marginLeftRight5">
                                     <div class="image-holder round10 overflow">
                                         {{#js_if "this.isonitunes == 2"}}
-                                            <a href="{{url}}" data-id="{{id}}" class="abs top0 left0 fullwidth fullheight forcedZIndexHigher link darken-current overflow round10 external" target="_blank"></a>
+                                            <a href="{{url}}" data-id="{{id}}" class="abs top0 left0 fullwidth fullheight forcedZIndexHigher link darken-current overflow round10 external" target="_system"></a>
                                         {{else}}
                                             <a href="#" @click="loadPodcastEpisodes" data-id="{{id}}" class="abs top0 left0 fullwidth fullheight forcedZIndexHigher link darken-current overflow round10"></a>
                                         {{/js_if}}
@@ -80,7 +80,7 @@
                                         <div class="swipeout-actions-right fixed-width-200 justify-content-center">
                                             <!-- Swipeout actions links/buttons -->
                                             <div>
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_blank" class="text-color-facebook size-20 external">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{urltoshare}}" target="_system" class="text-color-facebook size-20 external">
                                                     <span class="fa-stack">
                                                         <i class="fas fa-circle fa-stack-2x"></i>
                                                         <i class="fab fa-facebook-f fa-stack-1x text-color-white"></i>
@@ -88,7 +88,7 @@
                                                 </a>
                                             </div>
                                             <div>
-                                                <a href="https://twitter.com/intent/tweet/?text=Listen to {{titletoshare}} on {{../userinfo.firstname}} {{../userinfo.lastname}}'s podcast!&url={{urltoshare}}" target="_blank" class="text-color-twitter size-20 external">
+                                                <a href="https://twitter.com/intent/tweet/?text=Listen to {{titletoshare}} on {{../userinfo.firstname}} {{../userinfo.lastname}}'s podcast!&url={{urltoshare}}" target="_system" class="text-color-twitter size-20 external">
                                                     <span class="fa-stack">
                                                         <i class="fas fa-circle fa-stack-2x"></i>
                                                         <i class="fab fa-twitter fa-stack-1x text-color-white"></i>
@@ -96,7 +96,7 @@
                                                 </a>
                                             </div>
                                             <div>
-                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title=Listen to {{titletoshare}} on {{../userinfo.firstname}} {{../userinfo.lastname}}'s podcast!&summary=&source=" target="_blank" class="text-color-linkedin size-20 external">
+                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{urltoshare}}&title=Listen to {{titletoshare}} on {{../userinfo.firstname}} {{../userinfo.lastname}}'s podcast!&summary=&source=" target="_system" class="text-color-linkedin size-20 external">
                                                     <span class="fa-stack">
                                                         <i class="fas fa-circle fa-stack-2x"></i>
                                                         <i class="fab fa-linkedin-in fa-stack-1x text-color-white"></i>
