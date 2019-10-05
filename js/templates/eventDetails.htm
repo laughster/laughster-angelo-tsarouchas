@@ -46,47 +46,48 @@
                     <div class="padd10"></div>
                     <div class="wrapMap forcedZIndexHigher" data-target="gooogle-map-img"><a class="link external relative" target="_blank" href="{{googlemapurl}}" data-action="trackclicks" data-context="trackMainSection" data-etype="1" data-id="{{id}}" data-socialbutton="googlemapurl">{{googleimg}}</a></div>
                 {{/if}}
-                <div class="wrapPerformingComedians overflow bg-color-lightgray forcedZIndexLower">
                 {{#js_if "this.performing || this.performingnot"}}
-                    <div class="padd15 paddLeftRight25 text-align-center swiper-container swiper-init animated {{ifperformingAnimation}}" data-target="performing-comedians">
-                        <div class="padd15"></div>
-                        <div class="text-color-violete">Featuring standup comedy by:</div>
-                        <div class="paddTopBottom10 swiper-wrapper">
-                            {{#if performing}}
-                                {{#each performing}}
-                                    <div class="wrap-single-comedian swiper-slide inline-block text-color-violete text-align-center margin-bottom-10">
-                                        {{#if applestoreurl}}
-                                        <a class="link external abs top0 left0 forcedZIndexHigher fullwidth fullheight" href="{{applestoreurl}}" target="_blank"></a>
-                                        {{/if}}
-                                        <div>
-                                            <div class="fullpadding nice-circle">
-                                                <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                    <div class="wrapPerformingComedians overflow bg-color-lightgray forcedZIndexLower">
+
+                        <div class="padd15 paddLeftRight25 text-align-center swiper-container swiper-init animated {{ifperformingAnimation}}" data-target="performing-comedians">
+                            <div class="padd15"></div>
+                            <div class="text-color-violete">Featuring standup comedy by:</div>
+                            <div class="paddTopBottom10 swiper-wrapper">
+                                {{#if performing}}
+                                    {{#each performing}}
+                                        <div class="wrap-single-comedian swiper-slide inline-block text-color-violete text-align-center margin-bottom-10">
+                                            {{#if applestoreurl}}
+                                            <a class="link external abs top0 left0 forcedZIndexHigher fullwidth fullheight" href="{{applestoreurl}}" target="_blank"></a>
+                                            {{/if}}
+                                            <div>
+                                                <div class="fullpadding nice-circle">
+                                                    <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                                                </div>
                                             </div>
+                                            <div class="padd5"></div>
+                                            <div class="strong size-12 lineheight120">{{firstname}} {{lastname}}</div>
                                         </div>
-                                        <div class="padd5"></div>
-                                        <div class="strong size-12 lineheight120">{{firstname}} {{lastname}}</div>
-                                    </div>
-                                {{/each}}
-                            {{/if}}
-                            {{#if performingnot}}
-                                {{#each performingnot}}
-                                    <div class="wrap-single-comedian swiper-slide inline-block text-color-violete text-align-center margin-bottom-10">
-                                        <div>
-                                            <div class="fullpadding nice-circle">
-                                                <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                                    {{/each}}
+                                {{/if}}
+                                {{#if performingnot}}
+                                    {{#each performingnot}}
+                                        <div class="wrap-single-comedian swiper-slide inline-block text-color-violete text-align-center margin-bottom-10">
+                                            <div>
+                                                <div class="fullpadding nice-circle">
+                                                    <div class="circled bg-image abs top50 left50" style="background-image: url('{{iconthumbnailAPP}}');"></div>
+                                                </div>
                                             </div>
+                                            <div class="padd5"></div>
+                                            <div class="strong size-12 lineheight120">{{fullname}}</div>
                                         </div>
-                                        <div class="padd5"></div>
-                                        <div class="strong size-12 lineheight120">{{fullname}}</div>
-                                    </div>
-                                {{/each}}
-                            {{/if}}
+                                    {{/each}}
+                                {{/if}}
+                            </div>
                         </div>
                     </div>
                 {{/js_if}}
-            </div>
                 <div class="wrapSocialButtons bg-color-lightgray">
-                    <div class="padd20"></div>
+                    <div class="padd10"></div>
                     <div class="text-align-center text-color-white">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{urltosharefb}}" target="_blank" class="text-color-facebook size-22 external">
                             <span class="fa-stack">

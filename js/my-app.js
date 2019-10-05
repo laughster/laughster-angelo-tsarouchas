@@ -172,7 +172,7 @@ $$(document).on('deviceready', function(){
  });
  
  if(!isCordovaApp) {
-   // setupGeoLocation();
+  //setupGeoLocation1();
  }
  
  $$.fn.setCustomValidityFormTranslations=function(){
@@ -1793,6 +1793,30 @@ function togglePlay(player, self) {
 function onGeolocationError(error) {
     console.log("navigator.geolocation.getCurrentPosition - Error");
 }
+
+
+function setupGeoLocation1(){
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude=position.coords.latitude;
+                var longitude=position.coords.longitude;
+
+                 app.request.promise.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + GOOGLE_MAPS_STATIC_V3_API_KEY)
+      .then(
+        function success (response) {
+          currentLocation=getLocationParameters(JSON.parse(response));
+          currentLocation.classInitHidden="";
+          localStorage.setItem("currentLocation", totalStringify(currentLocation));
+        },
+        function fail (status) {
+          console.log('Request failed.  Returned status of',
+                      status);
+        }
+       );
+
+            }, function(){
+                console.log("navigator.geolocation.getCurrentPosition - Error");
+            });
+  }
   
   function setupPushInit(){
     var push = PushNotification.init({
