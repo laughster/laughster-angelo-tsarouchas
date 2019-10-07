@@ -1849,5 +1849,5 @@ function setupGeoLocation1(){
 
 $$(document).on('DOMContentLoaded', function() {
   console.log('DOMContentLoaded');
-  app.statusbar.hide();
+  //app.statusbar.hide();
 });
