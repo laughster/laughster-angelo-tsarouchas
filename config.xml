@@ -93,6 +93,7 @@
     <preference name="DisallowOverscroll" value="true"/>
     
     <plugin name="phonegap-plugin-push" spec="~2.3.0" />
+    <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-dialogs" />
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-inappbrowser" spec="~3.1.0" />
