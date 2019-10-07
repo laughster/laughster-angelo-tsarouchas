@@ -45,6 +45,10 @@
     padding-top: 0;
 }
 
+.statusbar{
+    display: none;
+}
+
 *{
     margin: 0;
     padding: 0;
