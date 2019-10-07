@@ -41,7 +41,9 @@
  --vh: 1vh;
 }
 
-
+.framework7-root{
+    padding-top: 0;
+}
 
 *{
     margin: 0;
