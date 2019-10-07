@@ -41,6 +41,9 @@ var app = new Framework7({
     touch: {
       tapHold: true //enable tap hold events
     },
+    statusbar: {
+        iosOverlaysWebView: false
+    },
     view: {
         iosDynamicNavbar: false
     }
