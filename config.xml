@@ -83,7 +83,8 @@
         
         <resource-file src="GoogleService-Info.plist" />
     </platform>
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="orienation" value="portrait" />
     <preference name="permissions" value="none" />
     <preference name="target-device" value="handset" />
