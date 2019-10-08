@@ -175,7 +175,7 @@ $$(document).on('deviceready', function(){
  });
  
  if(!isCordovaApp) {
-  //setupGeoLocation1();
+  setupGeoLocation1();
  }
  
  $$.fn.setCustomValidityFormTranslations=function(){
