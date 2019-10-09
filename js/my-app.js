@@ -829,6 +829,15 @@ $$(window).on('orientationchange',function(e){
 function loadHomeAdvancedComedian(self, appID){
     if(appID!==null && appID!==""){
         var postData={context: "loadHomeBasicComedian", appid: appID, regions: 1};
+        if(localStorage.getItem("userAPPInfo")!==null){
+            var simpleComedian=JSON.parse(localStorage.getItem("userAPPInfo"));
+            if(typeof(simpleComedian)!=="undefined"){
+                if(localStorage.getItem("userAPPLoggedIn")!==null){
+                    userAPPID=localStorage.getItem("userAPPLoggedIn");
+                    postData["userappid"]=userAPPID;
+                }
+            }
+        }
         app.request.post(
             pathToAjaxDispatcher, 
             postData, 
