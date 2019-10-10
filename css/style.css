@@ -1454,6 +1454,20 @@ div.wrapSinglePodcast div.image-holder > div.bg-image{
     display: block;
 }
 
+#view-main{
+    transition: left 0.3s ease-out 0s;
+    -moz-transition: left 0.3s ease-out 0s;
+    -webkit-transition: left 0.3s ease-out 0s;
+}
+
+#view-main.activated{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 8000;
+}
+
 /*Custom animations*/
 
 @-webkit-keyframes spin {

@@ -1,15 +1,15 @@
 <template>
     <!-- Initial Page, "data-name" contains page name -->
-    <div data-name="home" class="page bg-color-white">
+    <div data-name="home" class="page {{classPageBgColor}}">
         <!-- Scrollable page content -->
         <div class="page-content">
             <div id="wrapWelcomeComedianIntro" class="wrapWelcomeComedianIntro text-align-center overflow">
-                <div class="abs bottom0 fullwidth text-align-center forcedZIndexHigher wrap-portrait-visible">
+                <div class="abs bottom0 fullwidth text-align-center forcedZIndexHigher wrap-portrait-visible {{hiddenClassIfFromLogin}}">
                     <img class="text-align-center" src="./images/Swipe_Down.png" alt="" />
                     <div class="padd15"></div>
                 </div>
-                <div class="abs top0 left0 fullwidth fullheight signature-bg forcedZIndexHigher {{hiddenClassSignature}}" data-target="ifappuserdetected" style="background-image: url('{{signatureThumbnailAPP}}');"></div>
-                <div class="mAOLThumb abs top0 left0 fullwidth fullheight unveil blured forcedZIndexLower overflow">
+                <div class="abs top0 left0 fullwidth fullheight signature-bg forcedZIndexHigher {{hiddenClassSignature}} {{hiddenClassIfFromLogin}}" data-target="ifappuserdetected" style="background-image: url('{{signatureThumbnailAPP}}');"></div>
+                <div class="mAOLThumb abs top0 left0 fullwidth fullheight unveil blured forcedZIndexLower overflow {{hiddenClassIfFromLogin}}">
                     <div class="blurred-outer inheritheight">
                         <div class="overlayViolete forcedZIndexHigher"></div>
                         <div class="bg-image blurred fullwidth fullheight abs top0 left0 forcedZIndexLower {{classBlurBgAnimation}}" style="background-image: url('{{iconthumbnailAPP}}');" />
@@ -38,7 +38,7 @@
                     <div class="inline-block lineheight140 paddTopBottom20">
                         <div class="padd30"></div>
                         <div class="fixed-width-150">
-                            <div class="fullpadding nice-circle animated fadeInDownBig bg-color-black circled overflow">
+                            <div class="fullpadding nice-circle animated {{classImgAPPAnimated}} bg-color-black circled overflow">
                                 <div class="circled bg-color-black bg-image abs top50 left50 overflow" style="background-image: url('{{iconthumbnailAPP}}');"></div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                     </div>
                 {{/if}}
             </div>
-            <div id="wrapSocial" class="wrapWelcomeComedianIntro text-align-left paddTopBottom30 paddLeftRight35 animated overflow fadeIn {{classInitHidden}}">
+            <div id="wrapSocial" class="wrapWelcomeComedianIntro text-align-left paddTopBottom30 paddLeftRight35 animated overflow fadeIn bg-color-white {{classInitHidden}}">
                 {{#if wwwurl}}
                     <div class="fRow text-align-center">
                         <div class="inline-block">
@@ -248,20 +248,41 @@
   return {
       data() {
             return {
-              classInitHidden: "hidden",
+              classInitHidden: homePageReachedFromLogin ? "" : "hidden",
               classStoreBtnHidden: "zeroopacity",
-              classStoreBtnBadgeHidden: "zeroopacity"
+              classStoreBtnBadgeHidden: "zeroopacity",
+              hiddenClassSignature: homePageReachedFromLogin ? "" : "hidden",
+              hiddenClassIfFromLogin: homePageReachedFromLogin ? "hidden" : "",
+              classImgAPPAnimated: homePageReachedFromLogin ? "zeroopacity" : "fadeInDown",
+              classPageBgColor: homePageReachedFromLogin ? "bg-color-transparent" : "bg-color-white"
             }
         }, 
         on: {
             pageAfterIn: function () {
             // do something on page init
             var self = this;
+            var loadAgain=true;
             
             if(!homePageReloaded){
-                loadHomeAdvancedComedian(self, appID);
+                if(localStorage.getItem("userAPPInfo")!==null){
+                var simpleComedian=JSON.parse(localStorage.getItem("userAPPInfo"));
+                    if(typeof(simpleComedian)=="object"){
+                        loadAgain=false;
+                        self.$setState(simpleComedian);
+                        self.$setState({
+                            classInitHidden: "",
+                            classStoreBtnHidden: "zoomIn",
+                            classStoreBtnBadgeHidden: "fadeIn",
+                            classImgAPPAnimated: ""
+                        });
+                    }
+                }
+                if(loadAgain){
+                    loadHomeAdvancedComedian(self, appID);
+                }
             }
             loadComedianData(self, "loadComedianSectionViewStatistic");
+                
             setTimeout(function(){
                 pushSetupComedian(appID);
             }, 2000);

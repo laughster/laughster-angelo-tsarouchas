@@ -1,0 +1,122 @@
+<template>
+    <div class="block animated fadeIn overflow">
+        <div class="fixed-height-100">
+            <div class="padd10"></div>
+            <div class="text-align-center size-26 text-color-white animated fadeInUp {{classInitHidden}}">
+                {{firstname}} {{lastname}}
+            </div>
+            {{#if twitterhandle}}
+            <div class="text-align-center size-16 text-tiny text-color-white-opacity animated fadeInUp {{classInitHidden}}">
+                <a class="link external text-color-white-opacity" href="https://twitter.com/{{twitterhandle}}" target="_system" data-action="trackclicks" data-context="trackSocialMediaButtons" data-socialbutton="twitterhandle">@{{twitterhandle}}</a>
+            </div>
+            {{/if}}
+            <div class="text-align-center size-16 text-tiny text-color-white-opacity animated fadeInUp {{classInitHidden}}">
+                <i class="fas fa-map-marker-alt"></i> {{provincename}}, {{countryname}}
+            </div>
+        </div>
+        <div class="padd25"></div>
+                    <div class="padd20"></div>
+                        <div class="text-align-center">
+                            <div class="max-width-400 margin-auto paddLeftRight20">
+                                <div class="row no-gap animated fadeInRight justify-content-center">
+                                    <div class="col-25">
+                                        <div class="fullpadding margin-bottom-10">
+                                            <div class="abs top0 right0">
+                                                {{#if neweventsadded}}
+                                                    <span class="badge color-red size-14">{{neweventsadded}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link" href="/events/" style="background-image: url('./images/app_events.png');">
+                                                <div class="abs left0 bottom0 fullwidth text-align-center">Events</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-25">
+                                        <div class="fullpadding margin-bottom-10">
+                                            <div class="abs top0 right0">
+                                                {{#if newvideosadded}}
+                                                    <span class="badge color-red size-14">{{newvideosadded}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link" href="/videos/" style="background-image: url('./images/app_videos.png');">
+                                                <div class="abs left0 bottom0 fullwidth text-align-center">Videos</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-25">
+                                        <div class="fullpadding margin-bottom-10">
+                                            <div class="abs top0 right0">
+                                                {{#if newnewsadded}}
+                                                    <span class="badge color-red size-14">{{newnewsadded}}</span>
+                                                {{/if}}
+                                            </div>
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link" href="/news/" style="background-image: url('./images/app_news.png');">
+                                                <div class="abs left0 bottom0 fullwidth text-align-center">News</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{#js_if "this.countPodcasts && this.countPodcasts > 0"}}
+                                    <div class="col-25">
+                                        <div class="fullpadding margin-bottom-10">
+                                            {{#js_if "this.onlyPodcast && this.onlyPodcast.isonitunes == 2"}}
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link external" href="{{onlyPodcast.url}}" target="_system" style="background-image: url('./images/app_podcast.png');">
+                                
+                                            {{else}}
+                                            <a class="abs left0 top0 fullwidth fullheight btn-graphic link" href="/podcasts/" style="background-image: url('./images/app_podcast.png');">
+                                            {{/js_if}}
+                                
+                                                <div class="abs left0 bottom0 fullwidth text-align-center">Podcast</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{/js_if}}
+                                </div>
+                            </div>
+                        </div>
+                    <div class="padd20"></div>
+    </div>
+</template>
+<script>
+    return {
+      data() {
+            return {
+              classInitHidden: "hidden",
+              classStoreBtnHidden: "zeroopacity",
+              classStoreBtnBadgeHidden: "zeroopacity"
+            }
+        }, 
+        on: {
+            tabInit: function () {
+            // do something on page init
+            var self = this;
+            if(localStorage.getItem("userAPPInfo")!==null){
+            var simpleComedian=JSON.parse(localStorage.getItem("userAPPInfo"));
+                if(typeof(simpleComedian)=="object"){
+                    self.$setState({
+                        firstname: simpleComedian.firstname,
+                        lastname: simpleComedian.lastname,
+                        twitterhandle: simpleComedian.twitterhandle,
+                        provincename: simpleComedian.provincename,
+                        countryname: simpleComedian.countryname,
+                        classInitHidden: ""
+                    });
+                    
+                    this.$$("div.signature-bg").removeClass("hidden").addClass("fadeIn");
+                    this.$$("div.wrap-portrait-visible").addClass("fadeIn").find("img").removeClass("hidden");
+                    
+                    homePageReachedFromLogin=true;
+                    
+                    mainView = this.$app.views.create('#view-main', mainViewOptions);
+                    setTimeout(function(){
+                        self.$$("#view-main").show();
+                        self.$$("#view-login").hide();
+                    }, 5000);
+                    
+                }
+            }
+            loadComedianData(self, "loadComedianSectionViewStatistic");
+        }
+        
+    }
+  }
+</script>

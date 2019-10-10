@@ -29,6 +29,8 @@ var registrationFormObject={};
 
 var homePageReloaded=false;
 
+var homePageReachedFromLogin=false;
+
 var app = new Framework7({
     // App root element
     root: '#app',
@@ -79,7 +81,13 @@ var viewLoginOptions={
               path: '/welcome-tab-4/',
               id: 'welcome-tab-4',
               componentUrl: pathToJSTemplates + 'welcome-tab-4.htm'
-            }
+            },
+            // Final (home) tab
+            {
+              path: '/home-tab/',
+              id: 'home-tab',
+              componentUrl: pathToJSTemplates + 'home-tab.htm'
+            },
           ]
         }
   ],
@@ -704,8 +712,14 @@ DP.validateForm = function(){
                                                         tempObj.userappid=data["userappid"];
                                                         $$("input[name='userAPPID']").val(data["userappid"]);
                                                         localStorage.setItem("userAPPLoggedIn", data["userappid"]);
-                                                        mainView = app.views.create('#view-main', mainViewOptions);
-                                                        app.tab.show("#view-main", true);
+                                                        homePageReachedFromLogin=true;
+                                                        $$("#initialLoginForm").addClass("animated fadeOut");
+                                                        app.views.create('#view-main', mainViewOptions);
+                                                        setTimeout(function(){
+                                                            $$("#initialLoginForm").remove();
+                                                            $$("#view-main").addClass("tab-active activated"); 
+                                                        }, 200);
+                                                        //$$("a[data-route-tab-id='home-tab']").click();
                                                     break;
                                                 }
                                             }else{
@@ -951,7 +965,7 @@ function pushSetupComedian(appID){
 
 function loadHomeBasicComedian(self, appID){
     if(appID!==null && appID!==""){
-        var postData={context: "loadHomeBasicComedian", appid: appID};
+        var postData={context: "loadHomeBasicComedian", appid: appID, regions: 1};
         app.request.post(
             pathToAjaxDispatcher, 
             postData, 
