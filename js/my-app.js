@@ -713,10 +713,11 @@ DP.validateForm = function(){
                                                         $$("input[name='userAPPID']").val(data["userappid"]);
                                                         localStorage.setItem("userAPPLoggedIn", data["userappid"]);
                                                         homePageReachedFromLogin=true;
-                                                        $$("#initialLoginForm").addClass("animated fadeOut");
+                                                        $$("#frmRegisterAPPUserFE").addClass("animated fadeOut");
                                                         app.views.create('#view-main', mainViewOptions);
                                                         setTimeout(function(){
-                                                            $$("#initialLoginForm").remove();
+                                                            $$("#frmRegisterAPPUserFE").remove();
+                                                            $$("#view-login #appImgOnLogin").addClass("fadeOut");
                                                             $$("#view-main").addClass("tab-active activated"); 
                                                         }, 200);
                                                         //$$("a[data-route-tab-id='home-tab']").click();
