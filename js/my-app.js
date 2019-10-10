@@ -706,6 +706,17 @@ DP.validateForm = function(){
                                                         tempObj.userappid=data["userappid"];
                                                         $$("input[name='userAPPID']").val(data["userappid"]);
                                                         localStorage.setItem("userAPPLoggedIn", data["userappid"]);
+                                                        
+                                                        //we should update the current userAPPInfo local storage
+                                                        if(localStorage.getItem("userAPPInfo")!==null){
+                                                        var simpleComedian=JSON.parse(localStorage.getItem("userAPPInfo"));
+                                                            if(typeof(simpleComedian)=="object"){
+                                                                //Update store url for registered Fan
+                                                                simpleComedian.onlinestoreurl +="/"+data["userappid"];
+                                                                localStorage.setItem("userAPPInfo", totalStringify(simpleComedian));
+                                                            }
+                                                        }
+                                                        
                                                         homePageReachedFromLogin=true;
                                                         $$("#frmRegisterAPPUserFE").addClass("animated fadeOut");
                                                         app.views.create('#view-main', mainViewOptions);
