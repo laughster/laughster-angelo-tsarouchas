@@ -846,6 +846,26 @@ div.page.visible-navbar > .navbar{
 }
 
 
+.text-color-white-opacity75{
+    color: rgba(255,255,255, 0.75) !important;
+}
+
+.text-color-blue-opacity75{
+    color: rgba(28,139,211, 0.75) !important;
+}
+
+.text-color-white-opacity35{
+    color: rgba(255,255,255, 0.35) !important;
+}
+
+.text-color-blue-opacity35{
+    color: rgba(28,139,211, 0.35) !important;
+}
+
+.text-color-blue{
+   color: #1c8bd3 !important; 
+}
+
 .text-color-violete{
     color: #21165f !important;
 }
