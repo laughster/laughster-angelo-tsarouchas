@@ -91,10 +91,6 @@
     <preference name="deployment-target" value="8.0" />
     <preference name="DisallowOverscroll" value="true"/>
     
-    <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="SplashShowOnlyFirstTime" value="true" />
-    <preference name="SplashScreenSpinnerColor" value="white" />
-    
     <plugin name="phonegap-plugin-push" spec="~2.3.0" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-dialogs" />
