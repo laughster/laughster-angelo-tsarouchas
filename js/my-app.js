@@ -37,7 +37,7 @@ var app = new Framework7({
     // App Name
     name: 'Funny Greek',
     // App id
-    id: 'com.laughsterapp.app2',
+    id: 'com.laughsterapp.app',
     cache: false,
     cacheDuration: 0, /* set caching expire time to 0 */
     touch: {
@@ -136,15 +136,16 @@ var mainViewOptions={
     preloadPreviousPage: false
 };
 
-//Check wether user is logged in or not
-if(localStorage.getItem("userAPPLoggedIn")===null){
-    loginView = app.views.create('#view-login', viewLoginOptions);
-    app.tab.show("#view-login", false);
-}else{
-    mainView = app.views.create('#view-main', mainViewOptions);
-    app.tab.show("#view-main", false);
+function initAPP(){
+    //Check wether user is logged in or not
+    if(localStorage.getItem("userAPPLoggedIn")===null){
+        loginView = app.views.create('#view-login', viewLoginOptions);
+        app.tab.show("#view-login", false);
+    }else{
+        mainView = app.views.create('#view-main', mainViewOptions);
+        app.tab.show("#view-main", false);
+    }
 }
-
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
@@ -169,6 +170,7 @@ var isCordovaApp = document.URL.indexOf('http://') === -1
 $$(document).on('deviceready', function(){
     
     if(isCordovaApp) { 
+        initAPP();
         setupGeoLocation();
         setupPushInit();
     }else{
