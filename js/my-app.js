@@ -81,13 +81,7 @@ var viewLoginOptions={
               path: '/welcome-tab-4/',
               id: 'welcome-tab-4',
               componentUrl: pathToJSTemplates + 'welcome-tab-4.htm'
-            },
-            // Final (home) tab
-            {
-              path: '/home-tab/',
-              id: 'home-tab',
-              componentUrl: pathToJSTemplates + 'home-tab.htm'
-            },
+            }
           ]
         }
   ],
@@ -720,7 +714,6 @@ DP.validateForm = function(){
                                                             $$("#view-login #appImgOnLogin").addClass("fadeOut");
                                                             $$("#view-main").addClass("tab-active activated"); 
                                                         }, 200);
-                                                        //$$("a[data-route-tab-id='home-tab']").click();
                                                     break;
                                                 }
                                             }else{
