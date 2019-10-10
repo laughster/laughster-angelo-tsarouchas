@@ -13,23 +13,22 @@
   <icon src="icon.png"/>
   <platform name="android">
         <!-- you can use any density that exists in the Android project -->
-        <splash src="res/android/splash/splash-land-hdpi.png" density="land-hdpi"/>
-        <splash src="res/android/splash/splash-land-ldpi.png" density="land-ldpi"/>
-        <splash src="res/android/splash/splash-land-mdpi.png" density="land-mdpi"/>
-        <splash src="res/android/splash/splash-land-xhdpi.png" density="land-xhdpi"/>
+        <splash src="res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
+        <splash src="res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
+        <splash src="res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
+        <splash src="res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
+        <splash src="res/screen/android/splash-land-xxhdpi.png" density="land-xxhdpi"/>
 
-        <splash src="res/android/splash/splash-port-hdpi.png" density="port-hdpi"/>
-        <splash src="res/android/splash/splash-port-ldpi.png" density="port-ldpi"/>
-        <splash src="res/android/splash/splash-port-mdpi.png" density="port-mdpi"/>
-        <splash src="res/android/splash/splash-port-xhdpi.png" density="port-xhdpi"/>
+        <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
+        <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
+        <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+        <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+        <splash src="res/screen/android/splash-port-xxhdpi.png" density="port-xxhdpi"/>
       
-        <icon src="res/android/mipmap-ldpi/ic_launcher.png" density="ldpi" />
-        <icon src="res/android/mipmap-mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="res/android/mipmap-hdpi/ic_launcher.png" density="hdpi" />
-        <icon src="res/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
-        <icon src="res/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
-        <icon src="res/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
-        <resource-file src="google-services.json" target="app/google-services.json" />
+        <icon src="res/android/ldpi.png" density="ldpi" />
+        <icon src="res/android/mdpi.png" density="mdpi" />
+        <icon src="res/android/hdpi.png" density="hdpi" />
+        <icon src="res/android/xhdpi.png" density="xhdpi" />
     </platform>
      <platform name="ios">
         <splash src="res/screen/ios/Default@2x~iphone~anyany.png" />
@@ -90,6 +89,10 @@
     <preference name="target-device" value="handset" />
     <preference name="deployment-target" value="8.0" />
     <preference name="DisallowOverscroll" value="true"/>
+    
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <preference name="SplashScreenSpinnerColor" value="white" />
     
     <plugin name="phonegap-plugin-push" spec="~2.3.0" />
     <plugin name="cordova-plugin-splashscreen" />
