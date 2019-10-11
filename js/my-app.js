@@ -167,19 +167,16 @@ var swiper = app.swiper.create('.swiper-container', {
 var isCordovaApp = document.URL.indexOf('http://') === -1
   && document.URL.indexOf('https://') === -1;
 
-$$(document).on('deviceready', function(){
-    
-    if(isCordovaApp) { 
-        initAPP();
-        setupGeoLocation();
-        setupPushInit();
-    }else{
-        
-    }
- });
- 
- if(!isCordovaApp) {
-     initAPP();
+if(isCordovaApp) { 
+    $$(document).on('deviceready', function() {
+        console.log("Device is ready!");
+            initAPP();
+            setupGeoLocation();
+            setupPushInit();
+
+     });
+ }else{
+    initAPP();
     setupGeoLocation1();
  }
  
@@ -1877,8 +1874,3 @@ function setupGeoLocation1(){
          );
      });
 }
-
-$$(document).on('DOMContentLoaded', function() {
-  console.log('DOMContentLoaded');
-  //app.statusbar.hide();
-});
