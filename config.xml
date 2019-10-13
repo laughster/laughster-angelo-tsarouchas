@@ -105,13 +105,13 @@
     <allow-navigation href="data:*" />
     
     <edit-config target="NSLocationAlwaysAndWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Need location access to find things nearby.</string>
+        <string>This helps us recommend nearby events you might want to attend.</string>
     </edit-config>
     <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Need location access to find things nearby.</string>
+        <string>This helps us recommend nearby events you might want to attend.</string>
     </edit-config>
     <edit-config target="NSLocationAlwaysUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Need location access to find things nearby.</string>
+        <string>This helps us recommend nearby events you might want to attend.</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="UIStatusBarHidden">
         <true />
