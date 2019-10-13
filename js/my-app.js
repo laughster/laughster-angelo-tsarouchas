@@ -1754,6 +1754,8 @@ function openAllLinksWithBlankTargetInSystemBrowser() {
     // See https://issues.apache.org/jira/browse/CB-9573
     delete window.open; // scary, but it just sets back to the default window.open behavior
     var windowOpen = window.open; // Yes it is not deleted !
+    
+    var options='usewkwebview=yes';
 
     // Note it does not take a target!
     var systemOpen = function(url, options) {
